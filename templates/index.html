@@ -1,0 +1,162 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Navigation -->
+<nav class="bg-white shadow-lg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between h-20">
+            <div class="flex items-center">
+                <div class="flex-shrink-0 flex items-center">
+                    <i class="fa-solid fa-building-columns text-blue-600 text-3xl mr-3"></i>
+                    <span class="text-2xl font-bold text-blue-700">Digital Notice Board</span>
+                </div>
+            </div>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="/" class="text-blue-600 hover:text-blue-800 font-medium border-b-2 border-blue-500 px-1 py-2">Home</a>
+                <a href="/about" class="text-gray-600 hover:text-blue-800 font-medium transition duration-300">About</a>
+                <a href="/login" class="bg-blue-100 text-blue-700 hover:bg-blue-200 px-4 py-2 rounded-lg font-medium transition duration-300">Login</a>
+                <a href="/signup" class="bg-blue-600 text-white hover:bg-blue-700 px-4 py-2 rounded-lg font-medium transition duration-300 shadow-md">Sign Up</a>
+            </div>
+            <div class="md:hidden flex items-center">
+                <button type="button" class="text-gray-600 hover:text-blue-800 focus:outline-none focus:text-blue-800" aria-label="Toggle menu">
+                    <i class="fa-solid fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="py-16 md:py-24" style="background: radial-gradient(circle at top right, #93c5fd 0%, transparent 50%), radial-gradient(circle at bottom left, #93c5fd 0%, transparent 50%);">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 text-center md:text-left">
+                <h1 class="text-4xl md:text-5xl font-bold text-blue-800 leading-tight">Stay Updated with Digital Notices</h1>
+                <p class="mt-4 text-lg text-gray-600">A modern platform for students and administrators to share and receive important announcements efficiently.</p>
+                <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                    <a href="/signup" class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg shadow-md transition duration-300 transform hover:-translate-y-1">Get Started</a>
+                    <a href="/about" class="bg-white hover:bg-gray-100 text-blue-600 font-medium py-3 px-6 rounded-lg border border-blue-200 shadow-sm transition duration-300">Learn More</a>
+                </div>
+            </div>
+            <div class="md:w-1/2 mt-10 md:mt-0">
+                <div class="bg-white p-6 rounded-2xl shadow-xl border border-blue-100 mx-auto max-w-md">
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="text-lg font-semibold text-blue-700">Recent Notices</h3>
+                        <span class="bg-blue-100 text-blue-600 text-xs px-2 py-1 rounded-full">3 New</span>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="bg-blue-50 p-4 rounded-lg">
+                            <h4 class="font-medium text-blue-700">Exam Schedule Update</h4>
+                            <p class="text-sm text-gray-600 mt-1">The final exam schedule has been updated...</p>
+                            <p class="text-xs text-gray-400 mt-2">2 hours ago</p>
+                        </div>
+                        <div class="bg-yellow-50 p-4 rounded-lg">
+                            <h4 class="font-medium text-blue-700">Urgent Maintenance</h4>
+                            <p class="text-sm text-gray-600 mt-1">Server maintenance tonight from 11 PM...</p>
+                            <p class="text-xs text-gray-400 mt-2">Yesterday</p>
+                        </div>
+                        <div class="bg-blue-50 p-4 rounded-lg">
+                            <h4 class="font-medium text-blue-700">Sports Day Event</h4>
+                            <p class="text-sm text-gray-600 mt-1">Annual sports day will be held on October 5th...</p>
+                            <p class="text-xs text-gray-400 mt-2">2 days ago</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center">
+            <h2 class="text-3xl font-bold text-blue-800">Key Features</h2>
+            <p class="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">Our platform offers everything you need for effective communication</p>
+        </div>
+        <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="bg-blue-50 p-6 rounded-2xl border border-blue-100 shadow-sm transition duration-300 hover:-translate-y-1">
+                <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-4">
+                    <i class="fa-solid fa-bullhorn text-blue-600 text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-semibold text-blue-800">Instant Notices</h3>
+                <p class="mt-2 text-gray-600">Get important announcements delivered instantly to all users.</p>
+            </div>
+            <div class="bg-blue-50 p-6 rounded-2xl border border-blue-100 shadow-sm transition duration-300 hover:-translate-y-1">
+                <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-4">
+                    <i class="fa-solid fa-shield-alt text-blue-600 text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-semibold text-blue-800">Secure Access</h3>
+                <p class="mt-2 text-gray-600">Role-based authentication ensures information security.</p>
+            </div>
+            <div class="bg-blue-50 p-6 rounded-2xl border border-blue-100 shadow-sm transition duration-300 hover:-translate-y-1">
+                <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-4">
+                    <i class="fa-solid fa-mobile-alt text-blue-600 text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-semibold text-blue-800">Responsive Design</h3>
+                <p class="mt-2 text-gray-600">Access your notices from any device, anywhere.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="py-16 bg-gradient-to-r from-blue-500 to-blue-700">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl font-bold text-white">Ready to Get Started?</h2>
+        <p class="mt-4 text-lg text-blue-100 max-w-3xl mx-auto">Join thousands of students and administrators who use our platform daily</p>
+        <div class="mt-8">
+            <a href="/signup" class="inline-block bg-white text-blue-600 hover:bg-blue-50 font-medium py-3 px-8 rounded-lg shadow-md transition duration-300 transform hover:-translate-y-1">Create Your Account</a>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-gray-800 text-white py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div>
+                <h3 class="text-xl font-bold mb-4 flex items-center">
+                    <i class="fa-solid fa-building-columns mr-2"></i> Digital Notice Board
+                </h3>
+                <p class="text-gray-400">The modern solution for educational institutions to manage notices effectively.</p>
+            </div>
+            <div>
+                <h4 class="font-semibold text-lg mb-4">Quick Links</h4>
+                <ul class="space-y-2">
+                    <li><a href="/" class="text-gray-400 hover:text-white transition duration-300">Home</a></li>
+                    <li><a href="/about" class="text-gray-400 hover:text-white transition duration-300">About</a></li>
+                    <li><a href="/login" class="text-gray-400 hover:text-white transition duration-300">Login</a></li>
+                    <li><a href="/signup" class="text-gray-400 hover:text-white transition duration-300">Sign Up</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-semibold text-lg mb-4">Resources</h4>
+                <ul class="space-y-2">
+                    <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Documentation</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Help Center</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Privacy Policy</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Terms of Service</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-semibold text-lg mb-4">Contact Us</h4>
+                <address class="text-gray-400 not-italic">
+                    <p><i class="fa-solid fa-location-dot mr-2"></i> Vasai East, Mumbai, India</p>
+                    <p class="mt-2"><i class="fa-solid fa-phone mr-2"></i> +91 7776839491</p>
+                    <p class="mt-2"><i class="fa-solid fa-envelope mr-2"></i> sonuj6828@gmail.com </p>
+                </address>
+                <div class="flex space-x-4 mt-4">
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://github.com/SonuJaiswal6828" class="text-gray-400 hover:text-white transition duration-300"><i class="fa-brands fa-github"></i></i></a>
+                    <a href="https://instagram.com/Sonujaiswal_68" class="text-gray-400 hover:text-white transition duration-300"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://linkedin.com/in/SonuJaiswal" class="text-gray-400 hover:text-white transition duration-300"><i class="fa-brands fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+            <p>&copy; 2026 Digital Notice Board. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+{% endblock %}

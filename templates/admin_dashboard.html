@@ -1,0 +1,156 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="min-h-screen p-6">
+  <div class="max-w-6xl mx-auto">
+    <!-- Header -->
+    <div class="flex flex-col md:flex-row justify-between items-center mb-8 bg-white rounded-2xl shadow-lg p-6 border border-blue-100">
+      <div class="flex items-center">
+        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+          <i class="fas fa-user-shield text-blue-600 text-xl"></i>
+        </div>
+        <div>
+          <h1 class="text-3xl font-bold text-blue-600">Admin Dashboard</h1>
+          <p class="text-blue-400">Welcome back, {{ session.username }}</p>
+        </div>
+      </div>
+      <div class="flex items-center space-x-4 mt-4 md:mt-0">
+        <a href="#" class="bg-blue-100 text-blue-600 px-4 py-2 rounded-lg font-medium hover:bg-blue-200 transition duration-300">
+          <i class="fas fa-cog mr-2"></i>Settings
+        </a>
+        <a href="/logout" class="bg-red-100 text-red-600 px-4 py-2 rounded-lg font-medium hover:bg-red-200 transition duration-300">
+          <i class="fas fa-sign-out-alt mr-2"></i>Logout
+        </a>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <!-- Left Column - Add Notice Form -->
+      <div class="lg:col-span-2 bg-white rounded-2xl shadow-lg p-6 border border-blue-100">
+        <h2 class="text-xl font-semibold text-blue-700 mb-4 flex items-center">
+          <i class="fas fa-plus-circle mr-2 text-blue-500"></i>Add New Notice
+        </h2>
+        <form action="/add_notice" method="POST" class="space-y-6">
+          <div>
+            <label class="block text-blue-700 font-medium mb-2">Title:</label>
+            <input 
+              type="text" 
+              name="title" 
+              required
+              class="w-full px-4 py-3 rounded-lg border border-blue-200 focus:border-blue-400 focus:ring-2 focus:ring-blue-300 focus:outline-none transition duration-300"
+              placeholder="Enter notice title"
+            >
+          </div>
+
+          <div>
+            <label class="block text-blue-700 font-medium mb-2">Content:</label>
+            <textarea 
+              name="content" 
+              rows="5" 
+              required
+              class="w-full px-4 py-3 rounded-lg border border-blue-200 focus:border-blue-400 focus:ring-2 focus:ring-blue-300 focus:outline-none transition duration-300"
+              placeholder="Write your notice here..."
+            ></textarea>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-blue-700 font-medium mb-2">Category:</label>
+              <select name="category" class="w-full px-4 py-3 rounded-lg border border-blue-200 focus:border-blue-400 focus:ring-2 focus:ring-blue-300 focus:outline-none transition duration-300 text-blue-700">
+                <option value="general">General</option>
+                <option value="important">Important</option>
+                <option value="urgent">Urgent</option>
+                <option value="event">Event</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-blue-700 font-medium mb-2">Expiry Date:</label>
+              <input 
+                type="date" 
+                name="expiry_date"
+                class="w-full px-4 py-3 rounded-lg border border-blue-200 focus:border-blue-400 focus:ring-2 focus:ring-blue-300 focus:outline-none transition duration-300 text-blue-700"
+              >
+            </div>
+          </div>
+
+          <button 
+            type="submit"
+            class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-4 rounded-lg transition duration-300 transform hover:-translate-y-1 shadow-md hover:shadow-lg flex items-center justify-center"
+          >
+            <i class="fas fa-paper-plane mr-2"></i>Publish Notice
+          </button>
+        </form>
+      </div>
+
+      <!-- Right Column - Stats and Recent Notices -->
+      <div class="space-y-6">
+        <!-- Stats Cards -->
+        <div class="grid grid-cols-2 gap-4">
+          <div class="bg-white rounded-2xl shadow-lg p-4 border border-blue-100 text-center">
+            <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-2">
+              <i class="fas fa-bell text-blue-600"></i>
+            </div>
+            <h3 class="font-bold text-blue-700 text-xl">{{ total_notices }}</h3>
+            <p class="text-blue-400 text-sm">Total Notices</p>
+          </div>
+          <div class="bg-white rounded-2xl shadow-lg p-4 border border-blue-100 text-center">
+            <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-2">
+              <i class="fas fa-eye text-green-600"></i>
+            </div>
+            <h3 class="font-bold text-blue-700 text-xl">{{ total_views }}</h3>
+            <p class="text-blue-400 text-sm">Total Views</p>
+          </div>
+        </div>
+
+        <!-- Recent Notices -->
+        <div class="bg-white rounded-2xl shadow-lg p-6 border border-blue-100">
+          <h2 class="text-xl font-semibold text-blue-700 mb-4 flex items-center">
+            <i class="fas fa-history mr-2 text-blue-500"></i>Recent Notices
+          </h2>
+          <div class="space-y-4 max-h-80 overflow-y-auto pr-2">
+            {% for notice in recent_notices %}
+            <div class="bg-blue-50 p-4 rounded-lg border border-blue-100 transition duration-300 hover:shadow-md">
+              <div class="flex justify-between items-start">
+                <h3 class="font-semibold text-blue-700">{{ notice.title }}</h3>
+                <span class="bg-blue-100 text-blue-600 text-xs px-2 py-1 rounded-full">{{ notice.category|capitalize }}</span>
+              </div>
+              <p class="text-blue-600 text-sm mt-2">{{ notice.content[:100] }}...</p>
+              <div class="flex justify-between items-center mt-3">
+                <span class="text-blue-400 text-xs">{{ notice.created_at.strftime('%Y-%m-%d %H:%M') }}</span>
+                <div class="flex space-x-2">
+                  <button class="text-blue-500 hover:text-blue-700">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="text-red-500 hover:text-red-700">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Set today's date as default for the expiry date field
+  document.addEventListener('DOMContentLoaded', function() {
+    const today = new Date();
+    const yyyy = today.getFullYear();
+    let mm = today.getMonth() + 1;
+    let dd = today.getDate();
+    
+    if (dd < 10) dd = '0' + dd;
+    if (mm < 10) mm = '0' + mm;
+    
+    const formattedToday = `${yyyy}-${mm}-${dd}`;
+    const dateInput = document.querySelector('input[type="date"]');
+    if (dateInput) {
+        dateInput.value = formattedToday;
+    }
+  });
+</script>
+{% endblock %}
