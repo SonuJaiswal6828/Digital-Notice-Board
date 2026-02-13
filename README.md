@@ -56,24 +56,23 @@ It features secure authentication with separate dashboards for **Admins** (publi
 
 notice-board-system/
 │
-├── app.py                 # Main Flask application
-├── config.py              # Configuration settings
-├── requirements.txt       # Project dependencies
-├── Procfile               # For deployment
-├── .gitignore             # Git ignore file
+├── app.py                
+├── config.py             
+├── requirements.txt       
+├── Procfile             
+├── .gitignore           
 │
-├── static/                # Static files
+├── static/               
 │   └── css/
 │       └── style.css
 │
-└── templates/             # HTML templates
+└── templates/          
     ├── base.html
     ├── index.html
     ├── login.html
     ├── signup.html
     ├── admin_dashboard.html
     ├── student_dashboard.html
-    ├── view_notice.html
     ├── about.html
     ├── 404.html
     └── 500.html
@@ -85,15 +84,18 @@ MySQL Server
 
 Git (optional)
 
-1️⃣ Clone the Repository
+# 1️⃣ Clone the Repository
 git clone https://github.com/SonuJaiswal6828/Notice-Board-System.git
 cd Notice-Board-System
-2️⃣ Install Dependencies
+
+# 2️⃣ Install Dependencies
 pip install flask mysql-connector-python werkzeug
 Or:
 
 pip install -r requirements.txt
-3️⃣ Database Setup
+
+
+# 3️⃣ Database Setup
 Login to MySQL:
 
 mysql -u root -p
@@ -122,7 +124,8 @@ CREATE TABLE notices (
 );
 ⚠️ Important: Don’t commit real passwords to GitHub.
 
-4️⃣ Configuration
+# 4️⃣ Configuration
+
 Create config.py in root:
 
 class Config:
@@ -135,25 +138,29 @@ class Config:
     MYSQL_DB = 'notice_board'
 
     DEBUG = True
-5️⃣ Run the Application
+# 5️⃣ Run the Application
+
 python app.py
 Open 👉 http://localhost:5000
 
-🚀 Deployment Guide (Render + Cloud MySQL)
-Step 1️⃣ requirements.txt
+## 🚀 Deployment Guide (Render + Cloud MySQL)
+
+# Step 1️⃣ requirements.txt
 Flask==2.3.3
 mysql-connector-python==8.1.0
 Werkzeug==2.3.7
 gunicorn==21.2.0
 python-dotenv==1.0.0
-Step 2️⃣ .env (Local Testing)
+
+# Step 2️⃣ .env (Local Testing)
 SECRET_KEY=your_super_secret_key
 MYSQL_HOST=your-cloud-mysql-host
 MYSQL_PORT=3306
 MYSQL_USER=your_username
 MYSQL_PASSWORD=your_password
 MYSQL_DB=your_database
-Step 3️⃣ config.py (Production)
+
+# Step 3️⃣ config.py (Production)
 import os
 from dotenv import load_dotenv
 
@@ -169,9 +176,11 @@ class Config:
     MYSQL_DB = os.getenv('MYSQL_DB', 'notice_board')
 
     DEBUG = os.getenv('FLASK_DEBUG', 'false').lower() == 'true'
-Step 4️⃣ Procfile
+    
+# Step 4️⃣ Procfile
 web: gunicorn app:app
-Step 5️⃣ Deploy to Render
+
+# Step 5️⃣ Deploy to Render
 Push code to GitHub
 
 Login to https://render.com
@@ -186,7 +195,7 @@ Add environment variables
 
 Click Create Web Service
 
-🔒 Security Best Practices
+## 🔒 Security Best Practices
 ✅ Do's
 Use strong SECRET_KEY in production
 
@@ -198,7 +207,7 @@ Regular password updates
 
 Backup database regularly
 
-❌ Don'ts
+## ❌ Don'ts
 Don’t commit config.py with real credentials
 
 Don’t use default admin credentials
@@ -207,7 +216,7 @@ Don’t expose DB ports publicly
 
 Don’t disable CSRF protection
 
-🤝 Contributing
+### 🤝 Contributing
 Fork the repository
 
 Create a branch:
@@ -224,7 +233,7 @@ Open a Pull Request
 📝 License
 This project is licensed under the MIT License.
 
-👨‍💻 Developed By
+### 👨‍💻 Developed By
 Sonu Jaiswal
 
 GitHub: https://github.com/SonuJaiswal6828
@@ -233,16 +242,10 @@ LinkedIn: Sonu Jaiswal
 
 Email: sonujaiswal6828@gmail.com
 
-🙏 Acknowledgments
-Flask Documentation
 
-Bootstrap Team
-
-MySQL Community
-
-All contributors & users
 
 📧 Contact
 For support or queries: sonujaiswal6828@gmail.com
 
 ⭐ Star this repository if you find it helpful!
+
