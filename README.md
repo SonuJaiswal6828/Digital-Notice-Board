@@ -9,6 +9,8 @@ A full-stack web application designed to manage and display college/school notic
 It features secure authentication with separate dashboards for **Admins** (publish/manage notices) and **Students** (view notices).
 
 ---
+## 🚀 Live Demo  
+👉 https://digital-notice-board-eypm.onrender.com/
 
 ## ✨ Features
 
@@ -56,27 +58,28 @@ It features secure authentication with separate dashboards for **Admins** (publi
 
 notice-board-system/
 │
-├── app.py                
-├── config.py             
-├── requirements.txt       
-├── Procfile             
-├── .gitignore           
+├── app.py                                             
+├── config.py                                      
+├── requirements.txt                        
+├── Procfile                                 
+├── .gitignore                                   
 │
-├── static/               
-│   └── css/
-│       └── style.css
-│
-└── templates/          
-    ├── base.html
-    ├── index.html
-    ├── login.html
-    ├── signup.html
-    ├── admin_dashboard.html
-    ├── student_dashboard.html
-    ├── about.html
-    ├── 404.html
-    └── 500.html
-📦 Local Setup & Installation
+├── static/                                                          
+│   └── css/                                         
+│       └── style.css                         
+│                                                             
+└── templates/                              
+    ├── base.html                             
+    ├── index.html                  
+    ├── login.html               
+    ├── signup.html              
+    ├── admin_dashboard.html             
+    ├── student_dashboard.html                      
+    ├── about.html                  
+    ├── 404.html                
+    └── 500.html                                               
+                                         
+## 📦 Local Setup & Installation
 ✅ Prerequisites
 Python 3.x
 
@@ -248,4 +251,5 @@ Email: sonujaiswal6828@gmail.com
 For support or queries: sonujaiswal6828@gmail.com
 
 ⭐ Star this repository if you find it helpful!
+
 
