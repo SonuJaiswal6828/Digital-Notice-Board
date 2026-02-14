@@ -1,0 +1,217 @@
+/* Custom styles for the Digital Notice Board */
+.notice-card {
+    transition: all 0.3s ease;
+}
+.notice-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+.category-badge {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+}
+.timeline-item {
+    position: relative;
+    padding-left: 2rem;
+}
+.timeline-item:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 3px;
+    height: 100%;
+    background: #3b82f6;
+    border-radius: 6px;
+}
+.timeline-dot {
+    position: absolute;
+    left: -8px;
+    top: 0;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #3b82f6;
+    border: 4px solid #bfdbfe;
+}
+.team-card {
+    transition: all 0.3s ease;
+}
+.team-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* ============================================
+   MOBILE MENU STYLES - ADD THESE
+   ============================================ */
+
+/* Mobile menu container */
+.mobile-menu {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    background: white;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 100%;
+    z-index: 999;
+}
+
+/* Active mobile menu */
+.mobile-menu.active {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+/* Menu toggle button */
+#menuToggle {
+    transition: transform 0.3s ease;
+    z-index: 1000;
+}
+
+#menuToggle:hover {
+    transform: scale(1.1);
+}
+
+/* Mobile menu links */
+.mobile-menu a {
+    display: block;
+    text-decoration: none;
+    padding: 12px 16px;
+    border-bottom: 1px solid #f1f5f9;
+    color: #334155;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.mobile-menu a:hover {
+    background-color: #f8fafc;
+    color: #1e40af;
+}
+
+.mobile-menu a:last-child {
+    border-bottom: none;
+}
+
+/* Mobile menu icons */
+.mobile-menu a i {
+    width: 24px;
+    text-align: center;
+    margin-right: 10px;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+    /* Ensure navigation stays on top */
+    nav {
+        position: relative;
+    }
+    
+    /* Better spacing for mobile menu items */
+    .mobile-menu a {
+        padding: 14px 20px;
+        font-size: 16px;
+    }
+    
+    /* Mobile menu backdrop effect */
+    .mobile-menu.active {
+        border-top: 1px solid #e2e8f0;
+        border-bottom: 2px solid #3b82f6;
+    }
+}
+
+/* Small screens */
+@media (max-width: 640px) {
+    .mobile-menu a {
+        padding: 12px 16px;
+        font-size: 15px;
+    }
+}
+
+/* Animation for menu icon */
+.fa-bars, .fa-times {
+    transition: transform 0.3s ease;
+}
+
+/* Prevent body scroll when menu is open */
+body.menu-open {
+    overflow: hidden;
+}
+
+/* Flash messages for mobile */
+@media (max-width: 768px) {
+    .flash-message {
+        width: 90%;
+        left: 5%;
+        right: 5%;
+    }
+}
+
+/* Smooth transitions for all interactive elements */
+button, a {
+    transition: all 0.2s ease;
+}
+
+/* Active link styles for mobile menu */
+.mobile-menu a.active {
+    background-color: #dbeafe;
+    color: #1e40af;
+    font-weight: 600;
+    border-left: 4px solid #3b82f6;
+}
+
+/* Mobile menu scrollbar styling */
+.mobile-menu::-webkit-scrollbar {
+    width: 6px;
+}
+
+.mobile-menu::-webkit-scrollbar-track {
+    background: #f1f5f9;
+}
+
+.mobile-menu::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 3px;
+}
+
+.mobile-menu::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+/* Dashboard specific mobile styles */
+@media (max-width: 768px) {
+    /* Adjust dashboard layout for mobile */
+    .dashboard-grid {
+        grid-template-columns: 1fr !important;
+    }
+    
+    /* Mobile form elements */
+    input, select, textarea {
+        font-size: 16px !important; /* Prevents zoom on iOS */
+    }
+    
+    /* Mobile buttons */
+    button {
+        padding: 12px 16px !important;
+    }
+}
+
+/* Hover effects for mobile touch devices */
+@media (hover: none) and (pointer: coarse) {
+    .notice-card:hover {
+        transform: none;
+    }
+    
+    .team-card:hover {
+        transform: none;
+    }
+    
+    /* Active states for touch devices */
+    .mobile-menu a:active {
+        background-color: #e2e8f0;
+    }
+}
